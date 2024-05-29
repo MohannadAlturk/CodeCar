@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Programmierumgebung</title>
+    <style>
+        #codeArea {
+            width: 40%;
+            height: 100vh;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 10px; 
+        }
+        #canvasArea {
+            width: 60%;
+            height: 100vh;
+            float: right;
+            position: relative;
+        }
+        #car {
+            position: absolute;
+            width: 105px; /* Adjusted car size */
+            height: 105px; /* Adjusted car size */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        .box {
+            width: 105px; /* Adjusted box size */
+            height: 105px; /* Adjusted box size */
+            border: 1px solid black;
+            background-color: rgba(60, 174, 138, 0.816);
+        }
+        .carImg {
+            width: 105px; /* Adjusted car image size */
+            height: 105px; /* Adjusted car image size */
+            border: 1px solid black;
+            background-color: transparent;
+        }
+        #placesContainer {
+            margin-left: 150px;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            width: 1000px; /* Adjusted container width */
+        }
+        body {
+            background-color: #1e1e1e; /* Dunkles Grau */
+            color: #ffffff; /* Weiß für den Text, um den Kontrast zu erhöhen */
+            margin-top: 100px;
+        }
+        #codeInput {
+            width:100%; 
+            height:80%; 
+            margin-left: 40px;
+            font-size: 30px; 
+            tab-size: 4;
+            border: 15px solid black;
+            background-color: rgba(60, 174, 138, 0.816);
+            outline: none;
+        }
+        #navi {
+            width: 100%;
+            height: 100px;
+            background-color: rgba(60, 174, 138, 0.816);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1e1e1e;
+        }
+        button {
+            background-color: #3cae8a; /* Hintergrundfarbe passend zur Seite */
+            color: #1e1e1e; /* Textfarbe passend zur Seite */
+            border: none; /* Keine Umrandung */
+            padding: 15px 30px; /* Polsterung für eine angenehme Größe */
+            text-align: center; /* Textzentrierung */
+            text-decoration: none; /* Keine Textunterstreichung */
+            display: inline-block; /* Anzeige als Inline-Block */
+            font-size: 16px; /* Schriftgröße */
+            margin: 10px 2px; /* Außenabstand */
+            cursor: pointer; /* Mauszeiger als Hand */
+            border-radius: 5px; /* Abgerundete Ecken */
+            transition: background-color 0.3s ease; /* Übergangseffekt bei Hover */
+        }
+        button:hover {
+            background-color: #2a7d61; /* Dunklere Hintergrundfarbe bei Hover */
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="navi">
+        <h1 id="levels">Level 1</h1>
+    </div>
+    <div id="codeArea">
+        <textarea id="codeInput" onkeydown="insertSpaces(event)"></textarea>
+        <div id="buttons">
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="createElements(8,0);">Start Game</button>
+        </div>
+    </div>
+    <div id="canvasArea">
+        <div id="placesContainer"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
